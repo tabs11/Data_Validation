@@ -1,0 +1,37 @@
+{% extends "login_layout.html" %}
+{% block content %}
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <!-- Login Form -->
+    <form class="button" method="post">
+      <input type="text" id="username" class="fadeIn second" name="username" placeholder="login">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+      <input class="mybutton" type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+  </div>
+</div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  <div class="errors" style="margin-top: 20px">
+    <span style="color: red;">
+        <center>
+        {% for message in messages %}
+          {{ message[1] }}<br>
+        {% endfor %}
+        </center>
+    </span>
+  </div>
+  {% endif %}
+{% endwith %}
+ <div class="image_dim">
+      <!-- image -->
+    <center>
+      <img src='/static/images/NOKIA-Logo-Blue.jpg' style="width: auto; height: auto;max-width: 300px;max-height: 300px">
+    </center>
+  </div>
+
+{% endblock %}

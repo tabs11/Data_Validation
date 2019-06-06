@@ -1,0 +1,26 @@
+{% extends "login_layout.html" %}
+{% block content %}
+ <!-- Login Form -->
+<div align="right">
+    <form action="/logout" method="GET">
+        <button class="mybutton" class="fadeIn fourth" type="submit" value="Logout">Logout</button>
+    </form>
+</div>
+<p class="big"></p>
+<p class="big"></p>
+	<div class="multi_upload_index">
+		<h2 class="text-muted">UPLOADED FILES:</h2>
+
+			<p>Below the overview report (issues.txt) and the screened file with data to upload and detailed issues (report.xlsx): .</p>
+			<ul>
+				{% for file in filenames %}
+					<li><a href="{{url_for('uploaded_file', filename=file)}}">{{file}}</a></li>
+				{% endfor %}
+			</ul>
+		<hr/>
+		<h2 class="text-muted">DATA SUMMARY AND ISSUES FOUND:</h2>
+		<pre>
+			{{ text }}
+		</pre>
+	</div>
+ {% endblock %}  
